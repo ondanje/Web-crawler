@@ -11,8 +11,9 @@ def scrape(url: str) -> None:
         current_url=f'{url}?page={current_page}'
         print(current_url)
         
-        raw_html=requests.get(current_url)
-        soup = BeautifulSoup(raw_html.text,'html.parser')
+        
+        page=requests.get(current_url)
+        soup = BeautifulSoup(page.text,'html.parser')
         
         
         
@@ -30,7 +31,7 @@ def scrape(url: str) -> None:
             
         current_page +=1
         
-        print('\n\n') # Clearing console up
+        print('\n\n')
         
 def main() -> int:
     url="https://www.brightermonday.co.ke/jobs"
